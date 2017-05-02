@@ -1,0 +1,93 @@
+CREATE DATABASE 2007002360_lokaverkefni_5;
+
+USE 2007002360_lokaverkefni_5;
+
+CREATE TABLE Flytjandi
+(
+	ID PRIMARY KEY,
+    nafn VARCHAR(25),
+    faedingarAr VARCHAR(25),
+    danardagur INTEGER,
+    kyn VARCHAR(3),
+    flokkur FOREIGN KEY,
+    thjoderni FOREIGN KEY
+);
+
+CREATE TABLE Flokkur
+(
+		ID PRIMARY KEY,
+        nafn VARCHAR(25),
+        Lysing VARCHAR(55)
+);
+
+CREATE TABLE Lag
+(
+	ID PRIMARY KEY,
+    nafn VARCHAR(25),
+    lengd INTEGER,
+    texti VARCHAR(1000),
+    flytjandi_ID FOREIGN KEY,
+    tegund FOREIGN KEY,
+    hofundur FOREIGN KEY,
+    diskur FOREIGN KEY
+);
+
+CREATE TABLE Tegund
+(
+	ID PRIMARY KEY,
+    nafn VARCHAR(25),
+    uppruni VARCHAR(50)
+);
+
+CREATE TABLE Hofundur
+(
+	ID PRIMARY KEY,
+    nafn (25),
+    aldur INTEGER(3),
+    thjoderni VARCHAR(50),
+    faedingarDagur VARCHAR(50),
+    danarDagur VARCHAR(50)
+);
+
+CREATE TABLE Utgefandi
+(
+	ID PRIMARY KEY,
+    nafn VARCHAR(25),
+    stofnunardagur VARCHAR(25),
+    aldur INTEGER,
+    tegund_flytjanda VARCHAR(50),
+    stadsetning VARCHAR(50)
+);
+CREATE TABLE Diskur
+(
+	ID PRIMARY KEY,
+    nafn VARCHAR(25),
+    utgafuar INTEGER,
+    tegund_disks VARCHAR(50),
+    fjoldi_laga INTEGER,
+    utgefandi_ID FOREIGN KEY 
+);
+CREATE TABLE Thjoderni
+(
+	ID PRIMARY KEY,
+    nafn VARCHAR(25),
+    ibuafjoldi INTEGER,
+    staerd INTEGER,
+    hofudborg VARCHAR(30)
+);
+
+INSERT INTO Diskur('ID','DAMN.',2017,'hiphop',14,utgefandi_ID);
+INSERT INTO Diskur('ID','Views',2016,'hiphop',5,utgefandi_ID);
+INSERT INTO Diskur('ID','The Life of Pablo',2016,'hiphop',19,utgefandi_ID);
+INSERT INTO Diskur('ID','To Pimp a Butterfly',2015,'hiphop',16,utgefandi_ID);
+INSERT INTO Diskur('ID','Meet The Beatles!',1964,'rock',12,utgefandi_ID);
+INSERT INTO Diskur('ID','Major Key',2016,'hiphop',14,utgefandi_ID);
+INSERT INTO Diskur('ID','The Incredible True Story',2015,'hiphop',18,utgefandi_ID);
+
+
+INSERT INTO Utgefandi('ID','Columbia Records','1888,',129,'allt','New York City');
+INSERT INTO Utgefandi('ID','Def Jam Recordings','1984',33,'hiphop','New York');
+INSERT INTO Utgefandi('ID','Universal Music Group','1934',83,'allt','California');
+INSERT INTO Utgefandi('ID','OVO Sound','2012',5,'hiphop','Toronto');
+INSERT INTO Utgefandi('ID','Parlophone','1896',121,'allt','London');
+INSERT INTO Utgefandi('ID','Cash Money Records','1991',26,'hiphop','New Orleans');0
